@@ -116,7 +116,7 @@ exports.verify_user = (req, res) => {
                                 },
                             })
                             .then(() => {
-                                res.redirect(307, "http://localhost:3002/verified");
+                                res.redirect(307, "https://email-verifier.darshilrathod.com/verified");
                             });
                     } else {
                         res.redirect(307, "https://google.com");
