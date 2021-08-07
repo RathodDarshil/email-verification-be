@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  verified Boolean
+  password String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime?
+}
+
+model Watch_later {
+  id        Int      @id @default(autoincrement())
+  user_fk   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  mal_id    Int
+  deleted   Boolean?
+}
+
+model completed {
+  id        Int      @id @default(autoincrement())
+  user_fk   Int
+  mal_id    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  deleted   Boolean?
+}
+
+model forum {
+  id        Int      @id @default(autoincrement())
+  user_fk   Int
+  comment   String
+  reply_to  Int?
+  likes     Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  mal_id    Int
+}
+
+model friends {
+  id             Int      @id @default(autoincrement())
+  user_fk        Int
+  user_friend_fk Int
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime
+}
