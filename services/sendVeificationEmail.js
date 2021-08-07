@@ -21,7 +21,7 @@ const services = {
                 from: '"thedarshilrathod" <thedarshilrathod@gmail.com>', // sender address
                 to: email, // list of receivers
                 subject: "Email Verification", // Subject line
-                text: `http://localhost:4000/api/user/verify?token=${final_hash}&id=${id}`,
+                text: `https://email-verification-be.herokuapp.com/api/user/verify?token=${final_hash}&id=${id}`,
             });
             console.log("Message sent: %s", info.messageId);
         } catch {
